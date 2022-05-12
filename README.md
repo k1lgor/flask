@@ -1,6 +1,6 @@
 # Flask project - Dragos IT Academy
 
-![img](./application/static/images/home.png)
+![img](./application/static/images/gif.gif)
 
 ## **Setup**
 
