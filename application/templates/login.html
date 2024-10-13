@@ -1,26 +1,26 @@
 {% extends "layout.html" %} {% block content %}
 
 <div class="container offset-lg-2 col-md-6">
-	<form name="login" action="" method="post" novalidate>
-		<fieldset class="form-group">
-			<legend>
-				<h1>{{ title }}</h1>
-			</legend>
-			{{ form.hidden_tag() }}
-			<p>
-				{{ form.email.label }}<br />
-				{{ form.email(size=35) }} {% for error in form.email.errors %}
-				<span class="error-message">{{ error }}</span>
-				{% endfor %}
-			</p>
-			<p>
-				{{ form.password.label }}<br />
-				{{ form.password(size=15) }} {% for error in form.password.errors %}
-				<span class="error-message">{{ error }}</span>
-				{% endfor %}
-			</p>
-			<p>{{ form.submit() }}</p>
-		</fieldset>
-	</form>
+  <form name="login" action="" method="post" novalidate>
+    <fieldset class="form-group">
+      <legend>
+        <h1>{{ title }}</h1>
+      </legend>
+      {{ form.hidden_tag() }}
+      <p>
+        {{ form.email.label }}<br />
+        {{ form.email(size=35) }} {% for error in form.email.errors %}
+        <span class="error-message">{{ error }}</span>
+        {% endfor %}
+      </p>
+      <p>
+        {{ form.password.label }}<br />
+        {{ form.password(size=15) }} {% for error in form.password.errors %}
+        <span class="error-message">{{ error }}</span>
+        {% endfor %}
+      </p>
+      <p>{{ form.submit() }}</p>
+    </fieldset>
+  </form>
 </div>
 {% endblock %}
