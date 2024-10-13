@@ -1,0 +1,39 @@
+{% extends "layout.html" %} {% block content %}
+
+<div class="container offset-lg-2 col-md-6">
+  <form action="{{ url_for('add_course') }}" method="POST" novalidate>
+    <fieldset class="form-group">
+      <legend><h1>{{ title }}</h1></legend>
+
+      <p>
+        <label for="course_id">Course ID</label><br />
+        <input type="text" name="course_id" class="form-control" required />
+      </p>
+      <p>
+        <label for="title">Title</label><br />
+        <input type="text" name="title" class="form-control" required />
+      </p>
+      <p>
+        <label for="description">Description</label><br />
+        <textarea
+          name="description"
+          class="form-control"
+          rows="3"
+          required
+        ></textarea>
+      </p>
+      <p>
+        <label for="credits">Credits</label><br />
+        <input type="number" name="credits" class="form-control" required />
+      </p>
+      <p>
+        <label for="term">Term</label><br />
+        <input type="text" name="term" class="form-control" required />
+      </p>
+
+      <p><button type="submit" class="btn btn-primary">Add Course</button></p>
+    </fieldset>
+  </form>
+</div>
+
+{% endblock %}
