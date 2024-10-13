@@ -1,6 +1,8 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField
-from wtforms.validators import DataRequired, Email, Length, EqualTo, ValidationError
+from wtforms import BooleanField, PasswordField, StringField, SubmitField
+from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
+
+
 from application.models import User
 
 
@@ -23,13 +25,15 @@ class RegisterForm(FlaskForm):
         validators=[DataRequired(), Length(min=6, max=15), EqualTo("password")],
     )
     first_name = StringField(
-        "First Name", validators=[DataRequired(), Length(min=2, max=55)]
+        "First Name", validators=[DataRequired(), Length(min=2, max=50)]
     )
     last_name = StringField(
-        "Last Name", validators=[DataRequired(), Length(min=2, max=55)]
+        "Last Name", validators=[DataRequired(), Length(min=2, max=50)]
     )
+    is_admin = BooleanField("Admin Access")
     submit = SubmitField("Register Now")
 
     def validate_email(self, email):
-        if user := User.objects(email=email.data).first():
-            raise ValidationError("Email is already in use. Pick another one.")
+        user = User.query.filter_by(email=email.data).first()
+        if user:
+            raise ValidationError("Email already exists.")
