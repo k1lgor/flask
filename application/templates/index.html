@@ -1,28 +1,28 @@
 {% extends "layout.html" %} {% block content %}
 <div class="row">
-	<div class="col-md-12 text-center">
-		<h1>Welcome to Dragos IT Academy.</h1>
-		{% if session['username'] %}
-		<h3>Let's get started.</h3>
-		{% else %}
-		<p>Already registered? <a href="{{ url_for('login') }}">Login</a></p>
-		{% endif %}
-		<div class="text-center">
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-				assumenda iste libero repellat accusamus minus possimus excepturi? Unde
-				dolore commodi sapiente sunt aliquam non voluptates sequi itaque,
-				laborum, aperiam dolorem ab saepe, impedit quasi error deleniti labore
-				expedita officiis iure.
-			</p>
-			<img src="{{ url_for('static', filename='images/logo.png') }}" alt="" />
-			<p>
-				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat illum
-				delectus dolor est voluptatibus modi reiciendis quidem atque. Illum
-				voluptate, in rerum fugit doloremque molestiae ipsum provident minima
-				voluptatibus eaque.
-			</p>
-		</div>
-	</div>
+  <div class="col-md-12 text-center">
+    <h1>Welcome to Dragos IT Academy.</h1>
+    {% if session['username'] %}
+    <h3>Welcome. {{ session['username'] }}! Let's get started.</h3>
+    {% else %}
+    <p>Already registered? <a href="{{ url_for('login') }}">Login</a></p>
+    {% endif %}
+    <div class="text-center">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+        assumenda iste libero repellat accusamus minus possimus excepturi? Unde
+        dolore commodi sapiente sunt aliquam non voluptates sequi itaque,
+        laborum, aperiam dolorem ab saepe, impedit quasi error deleniti labore
+        expedita officiis iure.
+      </p>
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="" />
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat illum
+        delectus dolor est voluptatibus modi reiciendis quidem atque. Illum
+        voluptate, in rerum fugit doloremque molestiae ipsum provident minima
+        voluptatibus eaque.
+      </p>
+    </div>
+  </div>
 </div>
 {% endblock %}
