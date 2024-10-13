@@ -1,5 +1,10 @@
-from application import app
-from flask import Flask, request, jsonify
+from application import app, db
+from flask import jsonify, request
+
+
+@app.before_first_request
+def create_tables():
+    db.create_all()
 
 
 @app.route("/getmsg/", methods=["GET"])
@@ -26,7 +31,7 @@ def post_something():
     if param:
         return jsonify(
             {
-                "Message": f"Welcome {name} to our awesome platform!!",
+                "Message": f"Welcome {param} to our awesome platform!!",
                 "METHOD": "POST",
             }
         )
@@ -35,4 +40,4 @@ def post_something():
 
 
 if __name__ == "__main__":
-    app.run(port=5000, threaded=True)
+    app.run(port=5000, threaded=True, debug=True)
