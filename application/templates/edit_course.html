@@ -1,0 +1,53 @@
+{% extends "layout.html" %} {% block content %}
+<div class="container offset-lg-2 col-md-6">
+  <form
+    action="{{ url_for('edit_course', course_id=course.id) }}"
+    method="POST"
+  >
+    <fieldset class="form-group">
+      <legend><h1>Edit Course</h1></legend>
+
+      <p>
+        <label for="title">Title</label><br />
+        <input
+          type="text"
+          name="title"
+          class="form-control"
+          value="{{ course.title }}"
+          required
+        />
+      </p>
+      <p>
+        <label for="description">Description</label><br />
+        <textarea name="description" class="form-control" rows="3" required>
+{{ course.description }}</textarea
+        >
+      </p>
+      <p>
+        <label for="credits">Credits</label><br />
+        <input
+          type="number"
+          name="credits"
+          class="form-control"
+          value="{{ course.credits }}"
+          required
+        />
+      </p>
+      <p>
+        <label for="term">Term</label><br />
+        <input
+          type="text"
+          name="term"
+          class="form-control"
+          value="{{ course.term }}"
+          required
+        />
+      </p>
+
+      <p>
+        <button type="submit" class="btn btn-primary">Update Course</button>
+      </p>
+    </fieldset>
+  </form>
+</div>
+{% endblock %}
